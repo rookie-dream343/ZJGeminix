@@ -995,12 +995,7 @@ body.light-theme .gv-pm-panel {
   justify-content: space-between;
   padding: 14px 16px;
   gap: 6px;
-  background: linear-gradient(
-    to bottom right,
-    oklch(0.7227 0.192 149.5793 / 0.08),
-    oklch(0.9505 0.0507 163.0508 / 0.04),
-    transparent
-  );
+  background: oklch(0.98 0.002 264.5313 / 0.5);
   border-bottom: 1px solid oklch(0.9276 0.0058 264.5313 / 0.5);
   cursor: default;
   backdrop-filter: blur(8px);
@@ -1008,12 +1003,7 @@ body.light-theme .gv-pm-panel {
 
 @media (prefers-color-scheme: dark) {
   .gv-pm-header {
-    background: linear-gradient(
-      to bottom right,
-      oklch(0.7729 0.1535 163.2231 / 0.08),
-      oklch(0.3729 0.0306 259.7328 / 0.04),
-      transparent
-    );
+    background: oklch(0.3 0.02 264.5313 / 0.5);
     border-bottom-color: oklch(0.4461 0.0263 256.8018 / 0.5);
   }
 }
@@ -1022,8 +1012,8 @@ body.light-theme .gv-pm-panel {
   font-weight: 800;
   font-size: 17px;
   letter-spacing: -0.02em;
-  color: oklch(0.7227 0.192 149.5793);
-  text-shadow: 0 1px 2px oklch(0.7227 0.192 149.5793 / 0.1);
+  color: #1f2937;
+  text-shadow: none;
   flex: 1;
   min-width: 0;
   white-space: nowrap;
@@ -1035,21 +1025,21 @@ body.light-theme .gv-pm-panel {
 
 @media (prefers-color-scheme: dark) {
   .gv-pm-title {
-    color: oklch(0.7729 0.1535 163.2231);
-    text-shadow: 0 1px 3px oklch(0.7729 0.1535 163.2231 / 0.2);
+    color: #ffffff;
+    text-shadow: none;
   }
 }
 
 .theme-host.dark-theme .gv-pm-title,
 body.dark-theme .gv-pm-title {
-  color: oklch(0.7729 0.1535 163.2231);
-  text-shadow: 0 1px 3px oklch(0.7729 0.1535 163.2231 / 0.2);
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .theme-host.light-theme .gv-pm-title,
 body.light-theme .gv-pm-title {
-  color: oklch(0.7227 0.192 149.5793);
-  text-shadow: 0 1px 2px oklch(0.7227 0.192 149.5793 / 0.1);
+  color: #1f2937;
+  text-shadow: none;
 }
 
 .gv-pm-title-row {
