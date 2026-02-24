@@ -23,7 +23,6 @@ export default defineConfig({
             items: [
               { text: '安装', link: '/guide/installation' },
               { text: '快速上手', link: '/guide/getting-started' },
-              { text: '赞助', link: '/guide/sponsor' },
               { text: '交流与反馈', link: '/guide/community' },
             ],
           },
@@ -82,7 +81,6 @@ export default defineConfig({
             items: [
               { text: '安裝', link: '/zh_TW/guide/installation' },
               { text: '快速開始', link: '/zh_TW/guide/getting-started' },
-              { text: '贊助', link: '/zh_TW/guide/sponsor' },
               { text: '社群', link: '/zh_TW/guide/community' },
             ],
           },
@@ -141,7 +139,6 @@ export default defineConfig({
             items: [
               { text: 'Installation', link: '/en/guide/installation' },
               { text: 'Getting Started', link: '/en/guide/getting-started' },
-              { text: 'Sponsor', link: '/en/guide/sponsor' },
               { text: 'Community', link: '/en/guide/community' },
             ],
           },
@@ -200,7 +197,6 @@ export default defineConfig({
             items: [
               { text: 'インストール', link: '/ja/guide/installation' },
               { text: 'クイックスタート', link: '/ja/guide/getting-started' },
-              { text: 'スポンサー', link: '/ja/guide/sponsor' },
               { text: 'コミュニティ', link: '/ja/guide/community' },
             ],
           },
@@ -259,7 +255,6 @@ export default defineConfig({
             items: [
               { text: '설치', link: '/ko/guide/installation' },
               { text: '시작하기', link: '/ko/guide/getting-started' },
-              { text: '후원', link: '/ko/guide/sponsor' },
               { text: '커뮤니티', link: '/ko/guide/community' },
             ],
           },
@@ -318,7 +313,6 @@ export default defineConfig({
             items: [
               { text: 'Installation', link: '/fr/guide/installation' },
               { text: 'Commencer', link: '/fr/guide/getting-started' },
-              { text: 'Sponsor', link: '/fr/guide/sponsor' },
               { text: 'Communauté', link: '/fr/guide/community' },
             ],
           },
@@ -377,7 +371,6 @@ export default defineConfig({
             items: [
               { text: 'Instalación', link: '/es/guide/installation' },
               { text: 'Comenzar', link: '/es/guide/getting-started' },
-              { text: 'Patrocinar', link: '/es/guide/sponsor' },
               { text: 'Comunidad', link: '/es/guide/community' },
             ],
           },
@@ -442,7 +435,6 @@ export default defineConfig({
             items: [
               { text: 'Instalação', link: '/pt/guide/installation' },
               { text: 'Começar', link: '/pt/guide/getting-started' },
-              { text: 'Patrocinar', link: '/pt/guide/sponsor' },
               { text: 'Comunidade', link: '/pt/guide/community' },
             ],
           },
@@ -502,7 +494,6 @@ export default defineConfig({
             items: [
               { text: 'التثبيت', link: '/ar/guide/installation' },
               { text: 'البدء', link: '/ar/guide/getting-started' },
-              { text: 'رعاية', link: '/ar/guide/sponsor' },
               { text: 'المجتمع', link: '/ar/guide/community' },
             ],
           },
@@ -561,7 +552,6 @@ export default defineConfig({
             items: [
               { text: 'Установка', link: '/ru/guide/installation' },
               { text: 'Начало работы', link: '/ru/guide/getting-started' },
-              { text: 'Поддержать', link: '/ru/guide/sponsor' },
               { text: 'Сообщество', link: '/ru/guide/community' },
             ],
           },
