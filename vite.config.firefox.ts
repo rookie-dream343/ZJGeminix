@@ -15,7 +15,7 @@ export default mergeConfig(
           ...baseManifest,
           browser_specific_settings: {
             gecko: {
-              id: 'geminix@nagi-ovo',
+              id: 'JinForGemini@nagi-ovo',
               strict_min_version: '115.0',
               data_collection_permissions: {
                 required: ['none'],

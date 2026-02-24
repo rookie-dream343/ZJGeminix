@@ -171,7 +171,7 @@ export class DeepResearchPDFPrintService {
           <div class="gv-dr-print-report">${bodyHtml}</div>
         </div>
         <div class="gv-dr-print-footer">
-          <p>Exported from <a href="https://github.com/Nagi-ovo/geminix">GeminiX</a></p>
+          <p>Exported from <a href="https://github.com/Nagi-ovo/JinForGemini">Jin for Gemini</a></p>
           <p>Generated on ${this.escapeHTML(date)}</p>
         </div>
       </div>

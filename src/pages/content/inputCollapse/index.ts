@@ -4,7 +4,7 @@ import { StorageKeys } from '@/core/types/common';
 
 import { getTranslationSync } from '../../../utils/i18n';
 
-const STYLE_ID = 'geminix-input-collapse';
+const STYLE_ID = 'JinForGemini-input-collapse';
 const COLLAPSED_CLASS = 'gv-input-collapsed';
 const PLACEHOLDER_CLASS = 'gv-collapse-placeholder';
 
@@ -268,7 +268,7 @@ export function startInputCollapse() {
   chrome.storage?.sync?.get({ gvInputCollapseEnabled: false }, (res) => {
     if (res?.gvInputCollapseEnabled === false) {
       // Feature is disabled, don't initialize
-      console.log('[GeminiX] Input collapse is disabled');
+      console.log('[Jin for Gemini] Input collapse is disabled');
       return;
     }
 

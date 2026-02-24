@@ -304,7 +304,7 @@ export class PDFPrintService {
    * Get conversation title from page
    */
   private static getConversationTitle(): string {
-    // Strategy 1: Get from active conversation in GeminiX Folder UI (most accurate)
+    // Strategy 1: Get from active conversation in Jin for Gemini Folder UI (most accurate)
     try {
       // Prefer the folder row that is marked as selected for the current conversation
       const activeFolderTitle =
@@ -624,7 +624,7 @@ export class PDFPrintService {
   private static renderFooter(metadata: ConversationMetadata): string {
     return `
       <div class="gv-print-footer">
-        <p>Exported from <a href="https://github.com/Nagi-ovo/geminix">GeminiX</a> • ${metadata.count} conversation turns</p>
+        <p>Exported from <a href="https://github.com/Nagi-ovo/JinForGemini">Jin for Gemini</a> • ${metadata.count} conversation turns</p>
         <p>Generated on ${this.formatDate(metadata.exportedAt)}</p>
       </div>
     `;

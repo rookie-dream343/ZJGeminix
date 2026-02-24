@@ -175,7 +175,7 @@ function isPopupOrDialogOpen(): boolean {
     if (isElementVisible(menu)) return true;
   }
 
-  // Check for GeminiX popup elements
+  // Check for Jin for Gemini popup elements
   for (const selector of CUSTOM_POPUP_SELECTORS) {
     const customPopups = document.querySelectorAll<HTMLElement>(selector);
     for (const popup of customPopups) {
@@ -570,7 +570,7 @@ export function startSidebarAutoHide(): void {
       }
     });
   } catch (e) {
-    console.error('[GeminiX] Failed to get sidebar auto-hide setting:', e);
+    console.error('[Jin for Gemini] Failed to get sidebar auto-hide setting:', e);
   }
 
   // 2) Respond to storage changes
@@ -586,7 +586,7 @@ export function startSidebarAutoHide(): void {
       }
     });
   } catch (e) {
-    console.error('[GeminiX] Failed to add storage listener for sidebar auto-hide:', e);
+    console.error('[Jin for Gemini] Failed to add storage listener for sidebar auto-hide:', e);
   }
 
   // 3) Cleanup on page unload

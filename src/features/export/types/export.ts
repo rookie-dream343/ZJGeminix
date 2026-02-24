@@ -87,7 +87,7 @@ export interface BaseExportPayload {
  * JSON export payload (existing format)
  */
 export interface JSONExportPayload extends BaseExportPayload {
-  format: 'geminix.chat.v1';
+  format: 'JinForGemini.chat.v1';
   items: ChatTurn[];
 }
 

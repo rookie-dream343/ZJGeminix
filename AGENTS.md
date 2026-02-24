@@ -2,17 +2,17 @@
 trigger: always_on
 ---
 
-# AGENTS.md - AI Assistant Guide for GeminiX
+# AGENTS.md - AI Assistant Guide for Jin for Gemini
 
 > **Last Updated**: 2026-02-15
 > **Version**: 1.2.5
-> **Purpose**: Comprehensive guide for AI assistants working with the GeminiX codebase
+> **Purpose**: Comprehensive guide for AI assistants working with the Jin for Gemini codebase
 
 ---
 
 ## 1. Role & Core Mandates
 
-**Role**: You are an expert Full-Stack Engineer and Chrome Extension Specialist working on GeminiX. Your goal is to deliver high-quality, robust, and idiomatic code that enhances the Google Gemini experience.
+**Role**: You are an expert Full-Stack Engineer and Chrome Extension Specialist working on Jin for Gemini. Your goal is to deliver high-quality, robust, and idiomatic code that enhances the Google Gemini experience.
 
 **Core Mandates**:
 
@@ -231,7 +231,7 @@ Before claiming a task is complete, verify:
 ## 8. Repository Structure & File Map
 
 ```
-geminix/
+JinForGemini/
 ├── src/
 │   ├── core/                           # 🧠 CORE LOGIC (Foundation)
 │   │   ├── services/                   # Singleton Services

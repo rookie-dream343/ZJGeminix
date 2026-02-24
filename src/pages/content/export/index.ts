@@ -765,7 +765,7 @@ function escapeCssAttributeValue(value: string): string {
 }
 
 function getConversationTitleForExport(): string {
-  // Strategy 1: Get from active conversation in GeminiX Folder UI (most accurate)
+  // Strategy 1: Get from active conversation in Jin for Gemini Folder UI (most accurate)
   try {
     const activeFolderTitle =
       document.querySelector(
@@ -1164,7 +1164,7 @@ async function executeExportSequence(
   };
 
   if (state.attempt > 25) {
-    console.warn('[GeminiX] Export aborted: too many attempts.');
+    console.warn('[Jin for Gemini] Export aborted: too many attempts.');
     sessionStorage.removeItem(SESSION_KEY_PENDING_EXPORT);
     alert('Export stopped: Too many attempts detected.');
     return;
@@ -1172,7 +1172,7 @@ async function executeExportSequence(
 
   // 1. Find Top Node
   if (state.attempt > 0) {
-    console.log('[GeminiX] Resuming export... waiting for content load.');
+    console.log('[Jin for Gemini] Resuming export... waiting for content load.');
     const userSelectors = getUserSelectors();
     await waitForAnyElement(userSelectors, 15000);
   }
@@ -1189,7 +1189,7 @@ async function executeExportSequence(
   }
 
   if (!topNode) {
-    console.log('[GeminiX] No top node found, proceeding to export directly.');
+    console.log('[Jin for Gemini] No top node found, proceeding to export directly.');
     sessionStorage.removeItem(SESSION_KEY_PENDING_EXPORT);
     await performFinalExport(format, dict, lang, state.fontSize, state.initialSelectedMessageId);
     return;
@@ -1198,7 +1198,7 @@ async function executeExportSequence(
   const fingerprintSelectors = [...getUserSelectors(), ...getAssistantSelectors()];
   const beforeFingerprint = computeConversationFingerprint(document.body, fingerprintSelectors, 10);
 
-  console.log(`[GeminiX] Simulating click on top node (Attempt ${state.attempt + 1})...`);
+  console.log(`[Jin for Gemini] Simulating click on top node (Attempt ${state.attempt + 1})...`);
 
   // Update state before action to persist across potential reload
   sessionStorage.setItem(
@@ -1214,7 +1214,7 @@ async function executeExportSequence(
     topNode.dispatchEvent(new MouseEvent('mouseup', opts));
     topNode.click();
   } catch (e) {
-    console.error('[GeminiX] Failed to click top node:', e);
+    console.error('[Jin for Gemini] Failed to click top node:', e);
   }
 
   // 2. Wait for either hard refresh (page unload) OR a "soft refresh" that loads more history.
@@ -1227,7 +1227,7 @@ async function executeExportSequence(
   );
 
   if (changed) {
-    console.log('[GeminiX] History expanded (soft refresh). Clicking top node again...');
+    console.log('[Jin for Gemini] History expanded (soft refresh). Clicking top node again...');
     await executeExportSequence(format, dict, lang, {
       ...state,
       attempt: state.attempt + 1,
@@ -1236,7 +1236,7 @@ async function executeExportSequence(
     return;
   }
 
-  console.log('[GeminiX] No refresh or update detected. Exporting...');
+  console.log('[Jin for Gemini] No refresh or update detected. Exporting...');
   sessionStorage.removeItem(SESSION_KEY_PENDING_EXPORT);
   await performFinalExport(format, dict, lang, state.fontSize, state.initialSelectedMessageId);
 }
@@ -1547,7 +1547,7 @@ async function performFinalExport(
         showExportToast(t('export_toast_safari_pdf_ready'), { autoDismissMs: 5000 });
       }
     } catch (err) {
-      console.error('[GeminiX] Export error:', err);
+      console.error('[Jin for Gemini] Export error:', err);
       alert('Export error occurred.');
     } finally {
       hideProgress();
@@ -1663,7 +1663,7 @@ async function checkPendingExport() {
 
     // If state exists, it means we clicked and page refreshed.
     // So we resume the sequence.
-    console.log('[GeminiX] Resuming pending export sequence...');
+    console.log('[Jin for Gemini] Resuming pending export sequence...');
 
     // We need i18n for final export/alert
     const dict = await loadDictionaries();
@@ -1671,7 +1671,7 @@ async function checkPendingExport() {
 
     await executeExportSequenceWithProgress(state.format, dict, lang, state);
   } catch (e) {
-    console.error('[GeminiX] Failed to resume pending export:', e);
+    console.error('[Jin for Gemini] Failed to resume pending export:', e);
     sessionStorage.removeItem(SESSION_KEY_PENDING_EXPORT);
   }
 }
@@ -1812,7 +1812,7 @@ async function handleResponseCopyImageClick(
       showExportToast(texts.unsupported, { autoDismissMs: 3200 });
       return;
     }
-    console.error('[GeminiX] Failed to copy response image:', error);
+    console.error('[Jin for Gemini] Failed to copy response image:', error);
     showExportToast(texts.failed, { autoDismissMs: 3200 });
   } finally {
     delete trigger.dataset.gvCopyImageBusy;
@@ -2103,7 +2103,7 @@ export async function startExportButton(): Promise<void> {
         try {
           chrome.storage?.onChanged?.removeListener(storageChangeHandler);
         } catch (e) {
-          console.error('[GeminiX] Failed to remove storage listener on unload:', e);
+          console.error('[Jin for Gemini] Failed to remove storage listener on unload:', e);
         }
       },
       { once: true },
@@ -2118,7 +2118,7 @@ export async function startExportButton(): Promise<void> {
       showExportDialog(dict, lang);
     } catch (err) {
       try {
-        console.error('GeminiX export failed', err);
+        console.error('Jin for Gemini export failed', err);
       } catch {}
     }
   });
@@ -2177,7 +2177,7 @@ export async function startExportButton(): Promise<void> {
             showExportDialog(dict, lang);
           } catch (err) {
             try {
-              console.error('GeminiX export failed', err);
+              console.error('Jin for Gemini export failed', err);
             } catch {}
           }
         });
@@ -2186,7 +2186,7 @@ export async function startExportButton(): Promise<void> {
         currentBtn = newBtn;
       } catch (e) {
         try {
-          console.debug('[GeminiX] Export button re-injection failed:', e);
+          console.debug('[Jin for Gemini] Export button re-injection failed:', e);
         } catch {}
       }
     }, 800);
@@ -2222,7 +2222,7 @@ async function showExportDialog(
           options?.initialSelectedMessageId || undefined,
         );
       } catch (err) {
-        console.error('[GeminiX] Export error:', err);
+        console.error('[Jin for Gemini] Export error:', err);
       }
     },
 

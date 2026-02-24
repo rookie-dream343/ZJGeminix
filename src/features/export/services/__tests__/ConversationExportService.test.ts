@@ -224,7 +224,7 @@ describe('ConversationExportService', () => {
       expect(result.format).toBe('json');
       expect(downloadSpy).toHaveBeenCalledOnce();
       const payload = downloadSpy.mock.calls[0][0] as Record<string, unknown>;
-      expect(payload.format).toBe('geminix.report.v1');
+      expect(payload.format).toBe('JinForGemini.report.v1');
       expect(payload).toHaveProperty('content');
       expect(payload).not.toHaveProperty('items');
     });

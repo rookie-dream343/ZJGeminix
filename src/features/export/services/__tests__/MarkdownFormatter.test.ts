@@ -79,7 +79,7 @@ describe('MarkdownFormatter', () => {
     it('should include footer', () => {
       const markdown = MarkdownFormatter.format(mockTurns, mockMetadata);
 
-      expect(markdown).toContain('GeminiX');
+      expect(markdown).toContain('Jin for Gemini');
       expect(markdown).toContain('Generated on');
     });
 

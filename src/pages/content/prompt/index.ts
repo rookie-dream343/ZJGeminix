@@ -178,7 +178,7 @@ async function getLatestVersionCached(): Promise<string | null> {
     }
 
     const resp = await fetch(
-      'https://api.github.com/repos/Nagi-ovo/geminix/releases/latest',
+      'https://api.github.com/repos/Nagi-ovo/JinForGemini/releases/latest',
       {
         headers: { Accept: 'application/vnd.github+json' },
       },
@@ -474,15 +474,15 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
     const titleRow = createEl('div', 'gv-pm-title-row');
     const title = createEl('div', 'gv-pm-title');
     const titleText = document.createElement('span');
-    titleText.textContent = 'GeminiX';
+    titleText.textContent = 'Jin for Gemini';
     title.appendChild(titleText);
 
     const manifestVersion = chrome?.runtime?.getManifest?.()?.version;
     const currentVersionNormalized = normalizeVersionString(manifestVersion);
     const currentReleaseTag = toReleaseTag(manifestVersion);
     const releaseUrl = manifestVersion
-      ? `https://github.com/Nagi-ovo/geminix/releases/tag/${currentReleaseTag ?? `v${manifestVersion}`}`
-      : 'https://github.com/Nagi-ovo/geminix/releases';
+      ? `https://github.com/Nagi-ovo/JinForGemini/releases/tag/${currentReleaseTag ?? `v${manifestVersion}`}`
+      : 'https://github.com/Nagi-ovo/JinForGemini/releases';
     const versionBadge = document.createElement('a');
     versionBadge.className = 'gv-pm-version';
     versionBadge.href = releaseUrl;
@@ -521,8 +521,8 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
 
       const latestTag = toReleaseTag(latest);
       const latestUrl = latestTag
-        ? `https://github.com/Nagi-ovo/geminix/releases/tag/${latestTag}`
-        : 'https://github.com/Nagi-ovo/geminix/releases/latest';
+        ? `https://github.com/Nagi-ovo/JinForGemini/releases/tag/${latestTag}`
+        : 'https://github.com/Nagi-ovo/JinForGemini/releases/latest';
 
       versionBadge.classList.add('gv-pm-version-outdated');
       versionBadge.href = latestUrl;
@@ -610,7 +610,7 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
 
     const gh = document.createElement('a');
     gh.className = 'gv-pm-gh';
-    gh.href = 'https://github.com/Nagi-ovo/geminix';
+    gh.href = 'https://github.com/Nagi-ovo/JinForGemini';
     gh.target = '_blank';
     gh.rel = 'noreferrer';
     gh.title = i18n.t('starProject');
@@ -940,7 +940,7 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
 
     function refreshUITexts(): void {
       // Keep custom icon + label
-      titleText.textContent = 'GeminiX';
+      titleText.textContent = 'Jin for Gemini';
       addBtn.textContent = i18n.t('pm_add');
       searchInput.placeholder = i18n.t('pm_search_placeholder');
       importBtn.textContent = i18n.t('pm_import');
@@ -1271,7 +1271,7 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
       try {
         const data = await readStorage<PromptItem[]>(STORAGE_KEYS.items, []);
         const payload = {
-          format: 'geminix.prompts.v1',
+          format: 'JinForGemini.prompts.v1',
           exportedAt: new Date().toISOString(),
           items: data,
         };
@@ -1295,7 +1295,7 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
         // Read prompts
         const prompts = await readStorage<PromptItem[]>(STORAGE_KEYS.items, []);
         const promptPayload = {
-          format: 'geminix.prompts.v1',
+          format: 'JinForGemini.prompts.v1',
           exportedAt: new Date().toISOString(),
           items: prompts,
         };
@@ -1309,7 +1309,7 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
 
         // Create folder export payload with correct format
         const folderPayload = {
-          format: 'geminix.folders.v1',
+          format: 'JinForGemini.folders.v1',
           exportedAt: new Date().toISOString(),
           version: '0.9.3',
           data: {
@@ -1420,7 +1420,7 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
       try {
         const text = await file.text();
         const json = safeParseJSON<Record<string, unknown> | null>(text, null);
-        if (!json || (json.format !== 'geminix.prompts.v1' && !Array.isArray(json.items))) {
+        if (!json || (json.format !== 'JinForGemini.prompts.v1' && !Array.isArray(json.items))) {
           setNotice(i18n.t('pm_import_invalid') || 'Invalid file format', 'err');
           return;
         }

@@ -55,7 +55,7 @@ describe('sidebar width title centering', () => {
 
     expect(code).toContain("window.addEventListener('pointerdown'");
     expect(code).toContain('document.elementsFromPoint');
-    expect(code).toContain('[GeminiX][sidebarWidth debug] Search button hit blocked');
+    expect(code).toContain('[Jin for Gemini][sidebarWidth debug] Search button hit blocked');
     expect(code).toContain("document.querySelector<HTMLElement>('search-nav-button button')");
   });
 

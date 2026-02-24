@@ -60,11 +60,11 @@ export async function startPreventAutoScroll(): Promise<void> {
       }
     });
 
-    console.log('[GeminiX] Prevent auto scroll initialized');
+    console.log('[Jin for Gemini] Prevent auto scroll initialized');
   } catch (error) {
     if (isExtensionContextInvalidatedError(error)) {
       return;
     }
-    console.error('[GeminiX] Prevent auto scroll initialization failed:', error);
+    console.error('[Jin for Gemini] Prevent auto scroll initialization failed:', error);
   }
 }

@@ -38,13 +38,13 @@ export function downloadMarkdown(content: string): void {
       try {
         document.body.removeChild(a);
       } catch (error) {
-        console.error('[GeminiX] Error removing download link:', error);
+        console.error('[Jin for Gemini] Error removing download link:', error);
       }
       URL.revokeObjectURL(url);
     }, 100);
 
-    console.log('[GeminiX] Deep Research thinking content downloaded successfully');
+    console.log('[Jin for Gemini] Deep Research thinking content downloaded successfully');
   } catch (error) {
-    console.error('[GeminiX] Error downloading markdown:', error);
+    console.error('[Jin for Gemini] Error downloading markdown:', error);
   }
 }

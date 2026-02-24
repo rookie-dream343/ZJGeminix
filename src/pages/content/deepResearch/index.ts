@@ -50,7 +50,7 @@ function observeMenuOpening(): void {
     subtree: true,
   });
 
-  console.log('[GeminiX] Deep Research export observer initialized');
+  console.log('[Jin for Gemini] Deep Research export observer initialized');
 }
 
 /**
@@ -63,11 +63,11 @@ export function startDeepResearchExport(): void {
       return;
     }
 
-    console.log('[GeminiX] Initializing Deep Research export feature');
+    console.log('[Jin for Gemini] Initializing Deep Research export feature');
 
     // Start observing for menu opening
     observeMenuOpening();
   } catch (error) {
-    console.error('[GeminiX] Error starting Deep Research export:', error);
+    console.error('[Jin for Gemini] Error starting Deep Research export:', error);
   }
 }

@@ -2,10 +2,10 @@
 
 [English](README.md) | 简体中文
 
-为 Safari 构建和扩展 GeminiX 的开发者指南。
+为 Safari 构建和扩展 Jin for Gemini 的开发者指南。
 
 > [!TIP]
-> **想要进行安装？** 你现在可以直接从 [最新发布页](https://github.com/Nagi-ovo/geminix/releases/latest) 下载预签名的应用。只需下载 `.dmg` 并按提示安装即可。
+> **想要进行安装？** 你现在可以直接从 [最新发布页](https://github.com/Nagi-ovo/JinForGemini/releases/latest) 下载预签名的应用。只需下载 `.dmg` 并按提示安装即可。
 
 ## 快速开始
 
@@ -25,10 +25,10 @@ bun run build:safari
 
 ```bash
 # 转换为 Safari 格式
-xcrun safari-web-extension-converter dist_safari --macos-only --app-name "GeminiX"
+xcrun safari-web-extension-converter dist_safari --macos-only --app-name "Jin for Gemini"
 
 # 在 Xcode 中打开
-open "GeminiX/GeminiX.xcodeproj"
+open "Jin for Gemini/Jin for Gemini.xcodeproj"
 ```
 
 在 Xcode 中：
@@ -61,7 +61,7 @@ bun run build:safari
 
 ## 添加 Swift 原生代码（可选）
 
-[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/geminix)
+[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/JinForGemini)
 
 本项目包含用于原生 macOS 功能的 Swift 代码。添加它是**可选的**，但推荐使用。
 
@@ -78,11 +78,11 @@ safari/
 ### 如何添加
 
 1. 打开 Xcode 项目
-2. 右键点击 **"GeminiX Extension"** 目标
-3. 选择 **Add Files to "GeminiX Extension"...**
+2. 右键点击 **"Jin for Gemini Extension"** 目标
+3. 选择 **Add Files to "Jin for Gemini Extension"...**
 4. 导航到 `safari/App/` 和 `safari/Models/`
 5. 勾选 **"Copy items if needed"**
-6. 确保目标是 **"GeminiX Extension"**
+6. 确保目标是 **"Jin for Gemini Extension"**
 
 ### 原生功能
 
@@ -96,7 +96,7 @@ safari/
 
 ### 原生消息 API
 
-[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/geminix)
+[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/JinForGemini)
 
 **从 JavaScript 调用：**
 
@@ -124,19 +124,19 @@ browser.runtime.sendNativeMessage({ action: 'getVersion' }, (response) => {
 
 **Web 控制台：**
 
-- Safari → 开发 → Web Extension Background Pages → GeminiX
+- Safari → 开发 → Web Extension Background Pages → Jin for Gemini
 
 **原生日志：**
 
 ```bash
-log stream --predicate 'subsystem == "com.geminix.safari"' --level debug
+log stream --predicate 'subsystem == "com.JinForGemini.safari"' --level debug
 ```
 
 ### 常见问题
 
 **"Module 'SafariServices' not found"**
 
-- 确保 Swift 文件添加到 "GeminiX Extension" 目标，而不是主应用
+- 确保 Swift 文件添加到 "Jin for Gemini Extension" 目标，而不是主应用
 
 **原生消息不工作**
 
@@ -167,7 +167,7 @@ log stream --predicate 'subsystem == "com.geminix.safari"' --level debug
 
 ## 项目结构
 
-[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/geminix)
+[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/JinForGemini)
 
 ```
 ├── dist_safari/              # 构建的扩展（已忽略）

@@ -195,7 +195,7 @@ export class StorageMonitor {
     try {
       const notification = document.createElement('div');
       notification.className = `gv-notification gv-notification-${level}`;
-      notification.textContent = `[GeminiX] ${message}`;
+      notification.textContent = `[Jin for Gemini] ${message}`;
 
       // Color based on level
       const colors = {

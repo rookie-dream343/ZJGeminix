@@ -172,12 +172,12 @@ async function processImage(imgElement: HTMLImageElement): Promise<void> {
     imgElement.dataset.watermarkProcessed = 'true';
     imgElement.dataset.processedUrl = processedUrl; // Store for reference
 
-    console.log('[GeminiX] Watermark removed from preview image');
+    console.log('[Jin for Gemini] Watermark removed from preview image');
 
     // Add indicator to download button
     addDownloadIndicator(imgElement);
   } catch (error) {
-    console.warn('[GeminiX] Failed to process image for watermark removal:', error);
+    console.warn('[Jin for Gemini] Failed to process image for watermark removal:', error);
     imgElement.dataset.watermarkProcessed = 'failed';
   } finally {
     processingQueue.delete(imgElement);
@@ -212,7 +212,7 @@ const setupMutationObserver = (): void => {
     attributes: true, // Watch for attribute changes (like native buttons appearing)
     attributeFilter: ['class', 'src'],
   });
-  console.log('[GeminiX] Watermark remover MutationObserver active');
+  console.log('[Jin for Gemini] Watermark remover MutationObserver active');
 };
 /**
  * DOM-based communication bridge ID (must match fetchInterceptor.js)
@@ -256,13 +256,13 @@ function setupFetchInterceptorBridge(): void {
         const { requestId, base64 } = JSON.parse(requestData);
         await processImageRequest(requestId, base64, bridge);
       } catch (e) {
-        console.error('[GeminiX] Failed to parse request:', e);
+        console.error('[Jin for Gemini] Failed to parse request:', e);
       }
     }
   });
 
   observer.observe(bridge, { attributes: true, attributeFilter: ['data-request'] });
-  console.log('[GeminiX] Fetch interceptor bridge ready');
+  console.log('[Jin for Gemini] Fetch interceptor bridge ready');
 }
 
 /**
@@ -298,7 +298,7 @@ async function processImageRequest(
     // Send response via bridge element
     bridge.dataset.response = JSON.stringify({ requestId, base64: processedDataUrl });
   } catch (error) {
-    console.error('[GeminiX] Failed to process image:', error);
+    console.error('[Jin for Gemini] Failed to process image:', error);
     bridge.dataset.response = JSON.stringify({ requestId, error: String(error) });
   }
 }
@@ -319,7 +319,7 @@ export async function startWatermarkRemover(): Promise<void> {
     notifyFetchInterceptor(isEnabled);
 
     if (!isEnabled) {
-      console.log('[GeminiX] Watermark remover is disabled');
+      console.log('[Jin for Gemini] Watermark remover is disabled');
       return;
     }
 
@@ -327,7 +327,7 @@ export async function startWatermarkRemover(): Promise<void> {
     setupStatusListener();
     setupDownloadButtonTracking();
 
-    console.log('[GeminiX] Initializing watermark remover...');
+    console.log('[Jin for Gemini] Initializing watermark remover...');
     engine = await WatermarkEngine.create();
 
     // Setup bridge to handle requests from fetch interceptor
@@ -337,12 +337,12 @@ export async function startWatermarkRemover(): Promise<void> {
     processAllImages();
     setupMutationObserver();
 
-    console.log('[GeminiX] Watermark remover ready');
+    console.log('[Jin for Gemini] Watermark remover ready');
   } catch (error) {
     if (isExtensionContextInvalidatedError(error)) {
       return;
     }
-    console.error('[GeminiX] Watermark remover initialization failed:', error);
+    console.error('[Jin for Gemini] Watermark remover initialization failed:', error);
   }
 }
 
@@ -481,7 +481,7 @@ function setupStatusListener(): void {
   };
 
   const handleStatus = (statusData: string): void => {
-    console.log('[GeminiX] Status data received:', statusData);
+    console.log('[Jin for Gemini] Status data received:', statusData);
     if (!statusData) return;
 
     try {
@@ -543,7 +543,7 @@ function setupStatusListener(): void {
           break;
       }
     } catch (e) {
-      console.error('[GeminiX] Failed to parse status:', e);
+      console.error('[Jin for Gemini] Failed to parse status:', e);
     }
   };
 

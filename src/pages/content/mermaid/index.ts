@@ -33,7 +33,7 @@ export const loadMermaid = async (): Promise<typeof mermaidInstance> => {
     return mermaidInstance;
   } catch (error) {
     mermaidLoadFailed = true;
-    console.error('[GeminiX] Failed to load Mermaid library:', error);
+    console.error('[Jin for Gemini] Failed to load Mermaid library:', error);
     return null;
   }
 };
@@ -604,7 +604,7 @@ const renderMermaid = async (codeBlock: HTMLElement, code: string) => {
 
     codeBlock.dataset.mermaidCode = normalizedCode;
     codeBlock.dataset.mermaidProcessing = 'false';
-    console.log('[GeminiX] Mermaid diagram rendered:', uniqueId);
+    console.log('[Jin for Gemini] Mermaid diagram rendered:', uniqueId);
   } catch {
     codeBlock.dataset.mermaidProcessing = 'false';
 
@@ -723,7 +723,7 @@ export const startMermaid = () => {
     if (mermaidEnabled) {
       initializeMermaid();
     } else {
-      console.log('[GeminiX] Mermaid rendering is disabled');
+      console.log('[Jin for Gemini] Mermaid rendering is disabled');
     }
   });
 
@@ -733,14 +733,14 @@ export const startMermaid = () => {
       mermaidEnabled = changes.gvMermaidEnabled.newValue !== false;
       if (mermaidEnabled) {
         initializeMermaid();
-        console.log('[GeminiX] Mermaid rendering enabled');
+        console.log('[Jin for Gemini] Mermaid rendering enabled');
       } else {
         // Stop observing when disabled
         if (observer) {
           observer.disconnect();
           observer = null;
         }
-        console.log('[GeminiX] Mermaid rendering disabled');
+        console.log('[Jin for Gemini] Mermaid rendering disabled');
       }
     }
   });
@@ -754,7 +754,7 @@ const initializeMermaid = async () => {
 
   const loaded = await initMermaid();
   if (!loaded) {
-    console.warn('[GeminiX] Mermaid library failed to load, diagrams will show as code');
+    console.warn('[Jin for Gemini] Mermaid library failed to load, diagrams will show as code');
     return;
   }
 
@@ -780,5 +780,5 @@ const initializeMermaid = async () => {
     });
   }
 
-  console.log('[GeminiX] Mermaid integration started');
+  console.log('[Jin for Gemini] Mermaid integration started');
 };

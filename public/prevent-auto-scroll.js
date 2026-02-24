@@ -3,7 +3,7 @@
   if (window.__gvPreventAutoScrollInstalled) return;
   window.__gvPreventAutoScrollInstalled = true;
 
-  console.log('[GeminiX] Prevent auto scroll script loaded');
+  console.log('[Jin for Gemini] Prevent auto scroll script loaded');
 
   const BRIDGE_ID = 'gv-prevent-auto-scroll-bridge';
   function isEnabled() {

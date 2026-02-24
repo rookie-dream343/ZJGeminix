@@ -9,7 +9,7 @@ import { EXTENSION_VERSION } from '@/core/utils/version';
 
 import type { PromptExportPayload, PromptItem } from '../types/backup';
 
-const EXPORT_FORMAT = 'geminix.prompts.v1' as const;
+const EXPORT_FORMAT = 'JinForGemini.prompts.v1' as const;
 const STORAGE_KEY = 'gvPromptItems';
 
 /**
@@ -175,7 +175,7 @@ export class PromptImportExportService {
     const hh = pad(d.getHours());
     const mm = pad(d.getMinutes());
     const ss = pad(d.getSeconds());
-    return `geminix-prompts-${y}${m}${day}-${hh}${mm}${ss}.json`;
+    return `JinForGemini-prompts-${y}${m}${day}-${hh}${mm}${ss}.json`;
   }
 
   /**

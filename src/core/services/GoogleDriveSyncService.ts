@@ -5,9 +5,9 @@
  * Uses Chrome Identity API for OAuth2 and Drive REST API v3 for storage
  *
  * Stores folders, prompts, and starred messages as separate files:
- * - geminix-folders.json
- * - geminix-prompts.json
- * - geminix-starred.json
+ * - JinForGemini-folders.json
+ * - JinForGemini-prompts.json
+ * - JinForGemini-starred.json
  */
 import type { FolderData } from '@/core/types/folder';
 import type {
@@ -23,11 +23,11 @@ import type {
 import { DEFAULT_SYNC_STATE } from '@/core/types/sync';
 import { EXTENSION_VERSION } from '@/core/utils/version';
 
-const FOLDERS_FILE_NAME = 'geminix-folders.json';
-const AISTUDIO_FOLDERS_FILE_NAME = 'geminix-aistudio-folders.json';
-const PROMPTS_FILE_NAME = 'geminix-prompts.json';
-const STARRED_FILE_NAME = 'geminix-starred.json';
-const BACKUP_FOLDER_NAME = 'GeminiX Data';
+const FOLDERS_FILE_NAME = 'JinForGemini-folders.json';
+const AISTUDIO_FOLDERS_FILE_NAME = 'JinForGemini-aistudio-folders.json';
+const PROMPTS_FILE_NAME = 'JinForGemini-prompts.json';
+const STARRED_FILE_NAME = 'JinForGemini-starred.json';
+const BACKUP_FOLDER_NAME = 'Jin for Gemini Data';
 const DRIVE_API_BASE = 'https://www.googleapis.com/drive/v3';
 const DRIVE_UPLOAD_BASE = 'https://www.googleapis.com/upload/drive/v3';
 
@@ -148,7 +148,7 @@ export class GoogleDriveSyncService {
 
       // Create folder payload
       const folderPayload: FolderExportPayload = {
-        format: 'geminix.folders.v1',
+        format: 'JinForGemini.folders.v1',
         exportedAt: now.toISOString(),
         version: EXTENSION_VERSION,
         data: folders,
@@ -156,7 +156,7 @@ export class GoogleDriveSyncService {
 
       // Create prompt payload
       const promptPayload: PromptExportPayload = {
-        format: 'geminix.prompts.v1',
+        format: 'JinForGemini.prompts.v1',
         exportedAt: now.toISOString(),
         version: EXTENSION_VERSION,
         items: prompts,
@@ -199,7 +199,7 @@ export class GoogleDriveSyncService {
         };
 
         const starredPayload: StarredExportPayload = {
-          format: 'geminix.starred.v1',
+          format: 'JinForGemini.starred.v1',
           exportedAt: now.toISOString(),
           version: EXTENSION_VERSION,
           data: truncatedStarred,

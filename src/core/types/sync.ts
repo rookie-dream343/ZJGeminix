@@ -58,7 +58,7 @@ export interface PromptItem {
  * Folder export payload format (matches existing export format)
  */
 export interface FolderExportPayload {
-  format: 'geminix.folders.v1';
+  format: 'JinForGemini.folders.v1';
   exportedAt: string;
   version: string;
   data: FolderData;
@@ -68,7 +68,7 @@ export interface FolderExportPayload {
  * Prompt export payload format (matches existing export format)
  */
 export interface PromptExportPayload {
-  format: 'geminix.prompts.v1';
+  format: 'JinForGemini.prompts.v1';
   exportedAt: string;
   version?: string;
   items: PromptItem[];
@@ -86,7 +86,7 @@ export type {
  * Starred messages export payload format
  */
 export interface StarredExportPayload {
-  format: 'geminix.starred.v1';
+  format: 'JinForGemini.starred.v1';
   exportedAt: string;
   version?: string;
   data: StarredMessagesData;
@@ -100,7 +100,7 @@ export interface SyncData {
   /** Extension version that created this sync data */
   version: string;
   /** Format identifier for backward compatibility */
-  format: 'geminix.sync.v1';
+  format: 'JinForGemini.sync.v1';
   /** Folder data in export format */
   folders: FolderExportPayload;
   /** Prompt data in export format */

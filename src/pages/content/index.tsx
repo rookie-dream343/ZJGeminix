@@ -81,7 +81,7 @@ async function isCustomWebsite(): Promise<boolean> {
     // Normalize current hostname
     const currentHost = location.hostname.toLowerCase().replace(/^www\./, '');
 
-    console.log('[GeminiX] Checking custom websites:', {
+    console.log('[Jin for Gemini] Checking custom websites:', {
       currentHost,
       customWebsites,
       hostname: location.hostname,
@@ -91,17 +91,17 @@ async function isCustomWebsite(): Promise<boolean> {
       const normalizedWebsite = website.toLowerCase().replace(/^www\./, '');
       const matches =
         currentHost === normalizedWebsite || currentHost.endsWith('.' + normalizedWebsite);
-      console.log('[GeminiX] Comparing:', { currentHost, normalizedWebsite, matches });
+      console.log('[Jin for Gemini] Comparing:', { currentHost, normalizedWebsite, matches });
       return matches;
     });
 
-    console.log('[GeminiX] Is custom website:', isCustom);
+    console.log('[Jin for Gemini] Is custom website:', isCustom);
     return isCustom;
   } catch (e) {
     if (isExtensionContextInvalidatedError(e)) {
       return false;
     }
-    console.error('[GeminiX] Error checking custom websites:', e);
+    console.error('[Jin for Gemini] Error checking custom websites:', e);
     return false;
   }
 }
@@ -126,13 +126,13 @@ async function initializeFeatures(): Promise<void> {
 
     if (isCustomSite) {
       // Only start prompt manager for custom websites
-      console.log('[GeminiX] Custom website detected, starting Prompt Manager only');
+      console.log('[Jin for Gemini] Custom website detected, starting Prompt Manager only');
 
       promptManagerInstance = await startPromptManager();
       return;
     }
 
-    console.log('[GeminiX] Not a custom website, checking for Gemini/AI Studio');
+    console.log('[Jin for Gemini] Not a custom website, checking for Gemini/AI Studio');
 
     const isEnterprise = isGeminiEnterpriseEnvironment(
       {
@@ -145,7 +145,7 @@ async function initializeFeatures(): Promise<void> {
     );
 
     if (isEnterprise) {
-      console.log('[GeminiX] Gemini Enterprise detected, starting Prompt Manager only');
+      console.log('[Jin for Gemini] Gemini Enterprise detected, starting Prompt Manager only');
       promptManagerInstance = await startPromptManager();
       return;
     }
@@ -270,7 +270,7 @@ async function initializeFeatures(): Promise<void> {
     if (isExtensionContextInvalidatedError(e)) {
       return;
     }
-    console.error('[GeminiX] Initialization error:', e);
+    console.error('[Jin for Gemini] Initialization error:', e);
   }
 }
 
@@ -283,14 +283,14 @@ function getInitializationDelay(): number {
 
   if (isVisible) {
     // Foreground tab: initialize immediately for good UX
-    console.log('[GeminiX] Foreground tab detected, initializing immediately');
+    console.log('[Jin for Gemini] Foreground tab detected, initializing immediately');
     return 0;
   } else {
     // Background tab: add random delay to distribute load across multiple tabs
     const randomRange = BACKGROUND_TAB_MAX_DELAY - BACKGROUND_TAB_MIN_DELAY;
     const randomDelay = BACKGROUND_TAB_MIN_DELAY + Math.random() * randomRange;
     console.log(
-      `[GeminiX] Background tab detected, delaying initialization by ${Math.round(randomDelay)}ms`,
+      `[Jin for Gemini] Background tab detected, delaying initialization by ${Math.round(randomDelay)}ms`,
     );
     return randomDelay;
   }
@@ -306,7 +306,7 @@ function handleVisibilityChange(): void {
     if (initializationTimer !== null) {
       clearTimeout(initializationTimer);
       initializationTimer = null;
-      console.log('[GeminiX] Tab became visible, initializing immediately');
+      console.log('[Jin for Gemini] Tab became visible, initializing immediately');
     }
     initializeFeatures();
   }
@@ -343,7 +343,7 @@ function handleVisibilityChange(): void {
     if (isSupportedSite) {
       initKaTeXConfig();
       // Initialize i18n early to ensure translations are available
-      initI18n().catch((e) => console.error('[GeminiX] i18n init error:', e));
+      initI18n().catch((e) => console.error('[Jin for Gemini] i18n init error:', e));
     }
 
     // If not a known site, check if it's a custom website (async)
@@ -361,11 +361,11 @@ function handleVisibilityChange(): void {
         });
 
         if (isCustomSite) {
-          console.log('[GeminiX] Custom website detected:', hostname);
+          console.log('[Jin for Gemini] Custom website detected:', hostname);
           initializeFeatures();
         } else {
           // Not a supported site, exit early
-          console.log('[GeminiX] Not a supported website, skipping initialization');
+          console.log('[Jin for Gemini] Not a supported website, skipping initialization');
         }
       });
       return;
@@ -412,13 +412,13 @@ function handleVisibilityChange(): void {
         if (isExtensionContextInvalidatedError(e)) {
           return;
         }
-        console.error('[GeminiX] Cleanup error:', e);
+        console.error('[Jin for Gemini] Cleanup error:', e);
       }
     });
   } catch (e) {
     if (isExtensionContextInvalidatedError(e)) {
       return;
     }
-    console.error('[GeminiX] Fatal initialization error:', e);
+    console.error('[Jin for Gemini] Fatal initialization error:', e);
   }
 })();

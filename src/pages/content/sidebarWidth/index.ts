@@ -206,7 +206,7 @@ function setupSearchButtonHitTestDebug(): void {
     const top = stack[0] ?? null;
     const topStyle = top ? window.getComputedStyle(top) : null;
 
-    console.warn('[GeminiX][sidebarWidth debug] Search button hit blocked', {
+    console.warn('[Jin for Gemini][sidebarWidth debug] Search button hit blocked', {
       point: { x, y },
       target: formatElementForDebug(target),
       searchButton: formatElementForDebug(searchButton),
@@ -245,13 +245,13 @@ export function startSidebarWidthAdjuster(): void {
         try {
           chrome.storage?.sync?.set({ geminiSidebarWidth: normalized });
         } catch (err) {
-          console.warn('[GeminiX] Failed to migrate sidebar width to %:', err);
+          console.warn('[Jin for Gemini] Failed to migrate sidebar width to %:', err);
         }
       }
     });
   } catch (e) {
     // Fallback: inject default value if no storage permission
-    console.error('[GeminiX] Failed to get sidebar width from storage:', e);
+    console.error('[Jin for Gemini] Failed to get sidebar width from storage:', e);
     applyWidth(currentWidthValue);
   }
 
@@ -269,14 +269,14 @@ export function startSidebarWidthAdjuster(): void {
             try {
               chrome.storage?.sync?.set({ geminiSidebarWidth: normalized });
             } catch (err) {
-              console.warn('[GeminiX] Failed to migrate sidebar width to % on change:', err);
+              console.warn('[Jin for Gemini] Failed to migrate sidebar width to % on change:', err);
             }
           }
         }
       }
     });
   } catch (e) {
-    console.error('[GeminiX] Failed to add storage listener for sidebar width:', e);
+    console.error('[Jin for Gemini] Failed to add storage listener for sidebar width:', e);
   }
 
   // // 3) Listen for DOM changes (<bard-sidenav> may be lazily mounted)

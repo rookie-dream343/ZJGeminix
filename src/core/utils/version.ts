@@ -16,7 +16,7 @@ export const EXTENSION_VERSION = manifestChrome.version;
  * Maps format version to minimum compatible extension version
  */
 export const FORMAT_VERSIONS = {
-  'geminix.folders.v1': '0.7.0', // Minimum version that supports v1 format
+  'JinForGemini.folders.v1': '0.7.0', // Minimum version that supports v1 format
 } as const;
 
 export type FormatVersion = keyof typeof FORMAT_VERSIONS;

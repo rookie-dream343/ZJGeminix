@@ -26,7 +26,7 @@ function extractThoughtItem(thoughtElement: Element): { header: string; content:
 
     return { header, content };
   } catch (error) {
-    console.error('[GeminiX] Error extracting thought item:', error);
+    console.error('[Jin for Gemini] Error extracting thought item:', error);
     return null;
   }
 }
@@ -54,13 +54,13 @@ function extractBrowseChips(browseListElement: Element): BrowseChip[] {
           chips.push({ url, domain, title });
         }
       } catch (error) {
-        console.error('[GeminiX] Error extracting browse chip:', error);
+        console.error('[Jin for Gemini] Error extracting browse chip:', error);
       }
     });
 
     return chips;
   } catch (error) {
-    console.error('[GeminiX] Error extracting browse chips:', error);
+    console.error('[Jin for Gemini] Error extracting browse chips:', error);
     return [];
   }
 }
@@ -109,7 +109,7 @@ function extractThinkingSection(panelElement: Element): ThinkingSection | null {
 
     return { items };
   } catch (error) {
-    console.error('[GeminiX] Error extracting thinking section:', error);
+    console.error('[Jin for Gemini] Error extracting thinking section:', error);
     return null;
   }
 }
@@ -122,7 +122,7 @@ export function extractThinkingPanels(): ThinkingContent | null {
     // Check if we're in a Deep Research conversation
     const deepResearchPanel = document.querySelector('deep-research-immersive-panel');
     if (!deepResearchPanel) {
-      console.log('[GeminiX] Not a Deep Research conversation');
+      console.log('[Jin for Gemini] Not a Deep Research conversation');
       return null;
     }
 
@@ -139,7 +139,7 @@ export function extractThinkingPanels(): ThinkingContent | null {
     });
 
     if (sections.length === 0) {
-      console.log('[GeminiX] No thinking content found');
+      console.log('[Jin for Gemini] No thinking content found');
       return null;
     }
 
@@ -152,7 +152,7 @@ export function extractThinkingPanels(): ThinkingContent | null {
       title,
     };
   } catch (error) {
-    console.error('[GeminiX] Error extracting thinking panels:', error);
+    console.error('[Jin for Gemini] Error extracting thinking panels:', error);
     return null;
   }
 }
@@ -191,7 +191,7 @@ function getConversationTitle(): string {
       }
     }
   } catch (error) {
-    console.error('[GeminiX] Error getting conversation title:', error);
+    console.error('[Jin for Gemini] Error getting conversation title:', error);
   }
 
   return 'Deep Research Conversation';

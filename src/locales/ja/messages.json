@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "GeminiX",
+    "message": "Jin for Gemini",
     "description": "Extension name"
   },
   "extDescription": {
@@ -52,7 +52,7 @@
     "description": "Language label"
   },
   "pm_title": {
-    "message": "GeminiX",
+    "message": "Jin for Gemini",
     "description": "Prompt Manager title"
   },
   "pm_add": {

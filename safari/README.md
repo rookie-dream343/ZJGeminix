@@ -2,10 +2,10 @@
 
 English | [简体中文](README_ZH.md)
 
-Developer guide for building and extending GeminiX for Safari.
+Developer guide for building and extending Jin for Gemini for Safari.
 
 > [!TIP]
-> **Looking to install?** You can now download the pre-signed app directly from the [latest release](https://github.com/Nagi-ovo/geminix/releases/latest). Simply download the `.dmg` and follow the prompts to install.
+> **Looking to install?** You can now download the pre-signed app directly from the [latest release](https://github.com/Nagi-ovo/JinForGemini/releases/latest). Simply download the `.dmg` and follow the prompts to install.
 
 ## Quick Start
 
@@ -25,10 +25,10 @@ This creates a `dist_safari/` folder with the extension files.
 
 ```bash
 # Convert to Safari format
-xcrun safari-web-extension-converter dist_safari --macos-only --app-name "GeminiX"
+xcrun safari-web-extension-converter dist_safari --macos-only --app-name "Jin for Gemini"
 
 # Open in Xcode
-open "GeminiX/GeminiX.xcodeproj"
+open "Jin for Gemini/Jin for Gemini.xcodeproj"
 ```
 
 In Xcode:
@@ -61,7 +61,7 @@ bun run build:safari
 
 ## Adding Swift Native Code (Optional)
 
-[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/geminix)
+[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/JinForGemini)
 
 This project includes Swift code for native macOS features. Adding it is **optional** but recommended.
 
@@ -78,11 +78,11 @@ safari/
 ### How to Add
 
 1. Open the Xcode project
-2. Right-click **"GeminiX Extension"** target
-3. Select **Add Files to "GeminiX Extension"...**
+2. Right-click **"Jin for Gemini Extension"** target
+3. Select **Add Files to "Jin for Gemini Extension"...**
 4. Navigate to `safari/App/` and `safari/Models/`
 5. Check **"Copy items if needed"**
-6. Ensure target is **"GeminiX Extension"**
+6. Ensure target is **"Jin for Gemini Extension"**
 
 ### Native Features
 
@@ -96,7 +96,7 @@ Once added, you can:
 
 ### Native Messaging API
 
-[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/geminix)
+[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/JinForGemini)
 
 **From JavaScript:**
 
@@ -124,19 +124,19 @@ browser.runtime.sendNativeMessage({ action: 'getVersion' }, (response) => {
 
 **Web Console:**
 
-- Safari → Develop → Web Extension Background Pages → GeminiX
+- Safari → Develop → Web Extension Background Pages → Jin for Gemini
 
 **Native Logs:**
 
 ```bash
-log stream --predicate 'subsystem == "com.geminix.safari"' --level debug
+log stream --predicate 'subsystem == "com.JinForGemini.safari"' --level debug
 ```
 
 ### Common Issues
 
 **"Module 'SafariServices' not found"**
 
-- Ensure Swift files are added to "GeminiX Extension" target, not the main app
+- Ensure Swift files are added to "Jin for Gemini Extension" target, not the main app
 
 **Native messaging not working**
 
@@ -167,7 +167,7 @@ See [Apple's official guide](https://developer.apple.com/documentation/safariser
 
 ## Project Structure
 
-[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/geminix)
+[<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/Nagi-ovo/JinForGemini)
 
 ```
 ├── dist_safari/              # Built extension (gitignored)

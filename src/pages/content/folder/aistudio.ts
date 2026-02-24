@@ -1831,11 +1831,11 @@ export class AIStudioFolderManager {
 
   private handleExport(): void {
     const payload = {
-      format: 'geminix.folders.v1',
+      format: 'JinForGemini.folders.v1',
       exportedAt: new Date().toISOString(),
       data: this.data,
     };
-    downloadJSON(payload, `geminix-folders-${this.timestamp()}.json`);
+    downloadJSON(payload, `JinForGemini-folders-${this.timestamp()}.json`);
   }
 
   private handleImport(): void {
@@ -1987,7 +1987,7 @@ export class AIStudioFolderManager {
     try {
       const notification = document.createElement('div');
       notification.className = `gv - notification gv - notification - ${level} `;
-      notification.textContent = `[GeminiX] ${message} `;
+      notification.textContent = `[Jin for Gemini] ${message} `;
 
       // Color based on level
       const colors = {

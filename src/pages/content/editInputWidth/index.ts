@@ -5,7 +5,7 @@
  * Based on the chatWidth implementation pattern
  */
 
-const STYLE_ID = 'geminix-edit-input-width';
+const STYLE_ID = 'JinForGemini-edit-input-width';
 const DEFAULT_PERCENT = 60;
 const MIN_PERCENT = 30;
 const MAX_PERCENT = 100;
@@ -173,7 +173,7 @@ export function startEditInputWidthAdjuster(): void {
       try {
         chrome.storage?.sync?.set({ geminiEditInputWidth: normalized });
       } catch (e) {
-        console.warn('[GeminiX] Failed to migrate edit input width to %:', e);
+        console.warn('[Jin for Gemini] Failed to migrate edit input width to %:', e);
       }
     }
   });
@@ -191,7 +191,7 @@ export function startEditInputWidthAdjuster(): void {
           try {
             chrome.storage?.sync?.set({ geminiEditInputWidth: normalized });
           } catch (e) {
-            console.warn('[GeminiX] Failed to migrate edit input width to % on change:', e);
+            console.warn('[Jin for Gemini] Failed to migrate edit input width to % on change:', e);
           }
         }
       }

@@ -93,7 +93,7 @@ async function loadDictionaries(): Promise<Dictionaries> {
       ko: extractMessageDictionary(koRaw),
     };
   } catch (error) {
-    console.error('[GeminiX] Error loading dictionaries:', error);
+    console.error('[Jin for Gemini] Error loading dictionaries:', error);
     return {
       en: {},
       zh: {},
@@ -178,18 +178,18 @@ async function getLanguage(): Promise<AppLanguage> {
  */
 async function handleDownload(): Promise<void> {
   try {
-    console.log('[GeminiX] Extracting Deep Research thinking content...');
+    console.log('[Jin for Gemini] Extracting Deep Research thinking content...');
 
     const content = extractThinkingPanels();
     if (!content) {
-      console.warn('[GeminiX] No thinking content found');
+      console.warn('[Jin for Gemini] No thinking content found');
       return;
     }
 
     const markdown = await formatToMarkdown(content);
     downloadMarkdown(markdown);
   } catch (error) {
-    console.error('[GeminiX] Error handling download:', error);
+    console.error('[Jin for Gemini] Error handling download:', error);
   }
 }
 
@@ -361,7 +361,7 @@ export function showDeepResearchExportProgressOverlay(
 function handleSaveReport(dict: Dictionaries, lang: AppLanguage): void {
   const reportRoot = findDeepResearchReportRoot();
   if (!reportRoot) {
-    console.warn('[GeminiX] Report content root not found');
+    console.warn('[Jin for Gemini] Report content root not found');
     return;
   }
 
@@ -403,7 +403,7 @@ function handleSaveReport(dict: Dictionaries, lang: AppLanguage): void {
           showExportToast(t('export_toast_safari_pdf_ready'), { autoDismissMs: 5000 });
         }
       } catch (error) {
-        console.error('[GeminiX] Report export error:', error);
+        console.error('[Jin for Gemini] Report export error:', error);
         alert('Export error occurred.');
       } finally {
         hideProgress();
@@ -498,7 +498,7 @@ export async function injectDownloadButton(targetMenuPanel?: HTMLElement): Promi
 
     const menuPanel = targetMenuPanel ?? (await waitForElement('.mat-mdc-menu-panel[role="menu"]'));
     if (!menuPanel) {
-      console.log('[GeminiX] Menu panel not found');
+      console.log('[Jin for Gemini] Menu panel not found');
       return;
     }
     if (!(menuPanel instanceof HTMLElement)) return;
@@ -508,7 +508,7 @@ export async function injectDownloadButton(targetMenuPanel?: HTMLElement): Promi
     // Find the menu content container
     const menuContent = menuPanel.querySelector('.mat-mdc-menu-content');
     if (!menuContent) {
-      console.log('[GeminiX] Menu content not found');
+      console.log('[Jin for Gemini] Menu content not found');
       return;
     }
 
@@ -590,8 +590,8 @@ export async function injectDownloadButton(targetMenuPanel?: HTMLElement): Promi
       );
     }
 
-    console.log('[GeminiX] Deep Research menu buttons injected successfully');
+    console.log('[Jin for Gemini] Deep Research menu buttons injected successfully');
   } catch (error) {
-    console.error('[GeminiX] Error injecting Deep Research menu buttons:', error);
+    console.error('[Jin for Gemini] Error injecting Deep Research menu buttons:', error);
   }
 }

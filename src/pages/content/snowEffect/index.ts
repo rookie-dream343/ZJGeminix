@@ -221,7 +221,7 @@ export function startSnowEffect(): void {
       }
     });
   } catch (e) {
-    console.error('[GeminiX] Failed to get snow effect setting:', e);
+    console.error('[Jin for Gemini] Failed to get snow effect setting:', e);
   }
 
   // 2) Respond to storage changes
@@ -236,7 +236,7 @@ export function startSnowEffect(): void {
       }
     });
   } catch (e) {
-    console.error('[GeminiX] Failed to add storage listener for snow effect:', e);
+    console.error('[Jin for Gemini] Failed to add storage listener for snow effect:', e);
   }
 
   // 3) Cleanup on page unload

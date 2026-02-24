@@ -19,7 +19,7 @@ export interface PromptItem {
  * Prompt export payload format
  */
 export interface PromptExportPayload {
-  format: 'geminix.prompts.v1';
+  format: 'JinForGemini.prompts.v1';
   exportedAt: string;
   version?: string;
   items: PromptItem[];

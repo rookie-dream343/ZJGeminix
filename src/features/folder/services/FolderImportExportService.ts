@@ -23,7 +23,7 @@ import {
   ValidationErrorType,
 } from '../types/import-export';
 
-const EXPORT_FORMAT: FormatVersion = 'geminix.folders.v1' as const;
+const EXPORT_FORMAT: FormatVersion = 'JinForGemini.folders.v1' as const;
 
 /**
  * Service for handling folder import/export operations
@@ -360,7 +360,7 @@ export class FolderImportExportService {
     const hh = pad(d.getHours());
     const mm = pad(d.getMinutes());
     const ss = pad(d.getSeconds());
-    return `geminix-folders-${y}${m}${day}-${hh}${mm}${ss}.json`;
+    return `JinForGemini-folders-${y}${m}${day}-${hh}${mm}${ss}.json`;
   }
 
   /**

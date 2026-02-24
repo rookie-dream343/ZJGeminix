@@ -177,7 +177,7 @@ export default function Popup() {
     try {
       chrome.storage?.sync?.set({ gvFormulaCopyFormat: format });
     } catch (err) {
-      console.error('[GeminiX] Failed to save formula copy format:', err);
+      console.error('[Jin for Gemini] Failed to save formula copy format:', err);
     }
   }, []);
 
@@ -365,7 +365,7 @@ export default function Popup() {
         setExtVersion(version);
       }
     } catch (err) {
-      console.error('[GeminiX] Failed to get extension version:', err);
+      console.error('[Jin for Gemini] Failed to get extension version:', err);
     }
   }, []);
 
@@ -404,7 +404,7 @@ export default function Popup() {
 
         if (!latest) {
           const resp = await fetch(
-            'https://api.github.com/repos/Nagi-ovo/geminix/releases/latest',
+            'https://api.github.com/repos/Nagi-ovo/JinForGemini/releases/latest',
             {
               headers: { Accept: 'application/vnd.github+json' },
             },
@@ -430,7 +430,7 @@ export default function Popup() {
         setLatestVersion(latest);
       } catch (error) {
         if (!cancelled) {
-          console.warn('[GeminiX] Failed to check latest version:', error);
+          console.warn('[Jin for Gemini] Failed to check latest version:', error);
         }
       }
     };
@@ -603,7 +603,7 @@ export default function Popup() {
         }
         return granted;
       } catch (err) {
-        console.error('[GeminiX] Failed to request permissions for custom website:', err);
+        console.error('[Jin for Gemini] Failed to request permissions for custom website:', err);
         setWebsiteError(t('permissionRequestFailed'));
         return false;
       }
@@ -619,7 +619,7 @@ export default function Popup() {
       try {
         await browser.permissions.remove({ origins: originPatterns });
       } catch (err) {
-        console.warn('[GeminiX] Failed to revoke permission for', domain, err);
+        console.warn('[Jin for Gemini] Failed to revoke permission for', domain, err);
       }
     },
     [originPatternsForDomain],
@@ -716,12 +716,12 @@ export default function Popup() {
       : false;
   const latestReleaseTag = toReleaseTag(latestVersion ?? normalizedLatestVersion ?? undefined);
   const latestReleaseUrl = latestReleaseTag
-    ? `https://github.com/Nagi-ovo/geminix/releases/tag/${latestReleaseTag}`
-    : 'https://github.com/Nagi-ovo/geminix/releases/latest';
+    ? `https://github.com/Nagi-ovo/JinForGemini/releases/tag/${latestReleaseTag}`
+    : 'https://github.com/Nagi-ovo/JinForGemini/releases/latest';
   const currentReleaseTag = toReleaseTag(extVersion);
   const releaseUrl = extVersion
-    ? `https://github.com/Nagi-ovo/geminix/releases/tag/${currentReleaseTag ?? `v${extVersion}`}`
-    : 'https://github.com/Nagi-ovo/geminix/releases';
+    ? `https://github.com/Nagi-ovo/JinForGemini/releases/tag/${currentReleaseTag ?? `v${extVersion}`}`
+    : 'https://github.com/Nagi-ovo/JinForGemini/releases';
 
   const websiteUrl =
     language === 'zh' ? 'https://voyager.nagi.fun' : `https://voyager.nagi.fun/${language}`;
@@ -1471,7 +1471,7 @@ export default function Popup() {
         </div>
 
         <a
-          href="https://github.com/Nagi-ovo/geminix"
+          href="https://github.com/Nagi-ovo/JinForGemini"
           target="_blank"
           rel="noreferrer"
           className="bg-primary hover:bg-primary/90 text-primary-foreground inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:scale-[1.02] hover:shadow-lg active:scale-[0.98]"

@@ -28,5 +28,5 @@
     return originalWarn.apply(console, args);
   };
 
-  console.log('[GeminiX] KaTeX configuration applied - Unicode warnings suppressed');
+  console.log('[Jin for Gemini] KaTeX configuration applied - Unicode warnings suppressed');
 })();

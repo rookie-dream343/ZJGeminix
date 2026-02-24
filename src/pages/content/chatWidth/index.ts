@@ -2,7 +2,7 @@
  * Adjusts the chat area width based on user settings (stored as viewport %)
  */
 
-const STYLE_ID = 'geminix-chat-width';
+const STYLE_ID = 'JinForGemini-chat-width';
 const DEFAULT_PERCENT = 70;
 const MIN_PERCENT = 30;
 const MAX_PERCENT = 100;
@@ -188,7 +188,7 @@ export function startChatWidthAdjuster() {
       try {
         chrome.storage?.sync?.set({ geminiChatWidth: normalized });
       } catch (e) {
-        console.warn('[GeminiX] Failed to migrate chat width to %:', e);
+        console.warn('[Jin for Gemini] Failed to migrate chat width to %:', e);
       }
     }
   });
@@ -209,7 +209,7 @@ export function startChatWidthAdjuster() {
           try {
             chrome.storage?.sync?.set({ geminiChatWidth: normalized });
           } catch (e) {
-            console.warn('[GeminiX] Failed to migrate chat width to % on change:', e);
+            console.warn('[Jin for Gemini] Failed to migrate chat width to % on change:', e);
           }
         }
       }
@@ -251,7 +251,7 @@ export function startChatWidthAdjuster() {
       try {
         chrome.storage?.onChanged?.removeListener(storageChangeHandler);
       } catch (e) {
-        console.error('[GeminiX] Failed to remove storage listener on unload:', e);
+        console.error('[Jin for Gemini] Failed to remove storage listener on unload:', e);
       }
     },
     { once: true },

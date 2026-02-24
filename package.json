@@ -1,12 +1,12 @@
 {
-  "name": "geminix",
+  "name": "JinForGemini",
   "version": "1.0.0",
   "description": "Supercharge your Gemini experience with timeline navigation, folder organization, prompt vault, and chat export.",
   "license": "GPL-3.0",
   "author": "Your Name",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/geminix.git"
+    "url": "https://github.com/rookie-dream343/ZJGeminix.git"
   },
   "scripts": {
     "bump": "bun scripts/bump-version.js",

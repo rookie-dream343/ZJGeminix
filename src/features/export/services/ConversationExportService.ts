@@ -27,9 +27,9 @@ import { PDFPrintService } from './PDFPrintService';
  * Coordinates different export strategies
  */
 export class ConversationExportService {
-  private static readonly REPORT_JSON_FORMAT = 'geminix.report.v1' as const;
+  private static readonly REPORT_JSON_FORMAT = 'JinForGemini.report.v1' as const;
 
-  private static readonly CHAT_JSON_FORMAT = 'geminix.chat.v1' as const;
+  private static readonly CHAT_JSON_FORMAT = 'JinForGemini.chat.v1' as const;
 
   /**
    * Export conversation in specified format

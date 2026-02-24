@@ -92,14 +92,14 @@ describe('Version Management', () => {
 
   describe('isVersionCompatible', () => {
     it('should accept versions meeting minimum requirement', () => {
-      expect(isVersionCompatible('0.7.0', 'geminix.folders.v1')).toBe(true);
-      expect(isVersionCompatible('0.7.5', 'geminix.folders.v1')).toBe(true);
-      expect(isVersionCompatible('1.0.0', 'geminix.folders.v1')).toBe(true);
+      expect(isVersionCompatible('0.7.0', 'JinForGemini.folders.v1')).toBe(true);
+      expect(isVersionCompatible('0.7.5', 'JinForGemini.folders.v1')).toBe(true);
+      expect(isVersionCompatible('1.0.0', 'JinForGemini.folders.v1')).toBe(true);
     });
 
     it('should reject versions below minimum requirement', () => {
-      expect(isVersionCompatible('0.6.9', 'geminix.folders.v1')).toBe(false);
-      expect(isVersionCompatible('0.5.0', 'geminix.folders.v1')).toBe(false);
+      expect(isVersionCompatible('0.6.9', 'JinForGemini.folders.v1')).toBe(false);
+      expect(isVersionCompatible('0.5.0', 'JinForGemini.folders.v1')).toBe(false);
     });
 
     it('should reject unknown format versions', () => {
@@ -107,35 +107,35 @@ describe('Version Management', () => {
     });
 
     it('should handle invalid version strings gracefully', () => {
-      expect(isVersionCompatible('invalid', 'geminix.folders.v1')).toBe(false);
+      expect(isVersionCompatible('invalid', 'JinForGemini.folders.v1')).toBe(false);
     });
   });
 
   describe('isSupportedFormat', () => {
     it('should recognize supported formats', () => {
-      expect(isSupportedFormat('geminix.folders.v1')).toBe(true);
+      expect(isSupportedFormat('JinForGemini.folders.v1')).toBe(true);
     });
 
     it('should reject unsupported formats', () => {
       expect(isSupportedFormat('unknown.format')).toBe(false);
-      expect(isSupportedFormat('geminix.folders.v2')).toBe(false);
+      expect(isSupportedFormat('JinForGemini.folders.v2')).toBe(false);
       expect(isSupportedFormat('')).toBe(false);
     });
   });
 
   describe('getCompatibilityInfo', () => {
     it('should return compatible info for valid versions', () => {
-      const info = getCompatibilityInfo('0.7.5', 'geminix.folders.v1');
+      const info = getCompatibilityInfo('0.7.5', 'JinForGemini.folders.v1');
       expect(info.compatible).toBe(true);
       expect(info.currentVersion).toBe(EXTENSION_VERSION);
       expect(info.importVersion).toBe('0.7.5');
-      expect(info.formatVersion).toBe('geminix.folders.v1');
+      expect(info.formatVersion).toBe('JinForGemini.folders.v1');
       expect(info.minRequiredVersion).toBe('0.7.0');
       expect(info.reason).toBeUndefined();
     });
 
     it('should return incompatible info for old versions', () => {
-      const info = getCompatibilityInfo('0.6.0', 'geminix.folders.v1');
+      const info = getCompatibilityInfo('0.6.0', 'JinForGemini.folders.v1');
       expect(info.compatible).toBe(false);
       expect(info.reason).toContain('below minimum required version');
     });
@@ -147,7 +147,7 @@ describe('Version Management', () => {
     });
 
     it('should handle invalid version strings', () => {
-      const info = getCompatibilityInfo('invalid', 'geminix.folders.v1');
+      const info = getCompatibilityInfo('invalid', 'JinForGemini.folders.v1');
       expect(info.compatible).toBe(false);
       expect(info.reason).toContain('Invalid version format');
     });
@@ -192,7 +192,7 @@ describe('Version Management', () => {
     });
 
     it('should include v1 format', () => {
-      expect(FORMAT_VERSIONS['geminix.folders.v1']).toBeDefined();
+      expect(FORMAT_VERSIONS['JinForGemini.folders.v1']).toBeDefined();
     });
   });
 
@@ -211,7 +211,7 @@ describe('Version Management', () => {
 
   describe('Real-world Scenarios', () => {
     it('should handle current extension version compatibility', () => {
-      const info = getCompatibilityInfo(EXTENSION_VERSION, 'geminix.folders.v1');
+      const info = getCompatibilityInfo(EXTENSION_VERSION, 'JinForGemini.folders.v1');
       expect(info.compatible).toBe(true);
     });
 
@@ -219,13 +219,13 @@ describe('Version Management', () => {
       // This test ensures we don't break if someone tries to import from a newer version
       // The system should handle it gracefully (though we may want to add warnings)
       const futureVersion = '99.0.0';
-      const info = getCompatibilityInfo(futureVersion, 'geminix.folders.v1');
+      const info = getCompatibilityInfo(futureVersion, 'JinForGemini.folders.v1');
       expect(info.compatible).toBe(true); // Future versions are compatible
     });
 
     it('should handle version ranges correctly', () => {
       const versions = ['0.6.9', '0.7.0', '0.7.1', '0.7.7', '0.8.0', '1.0.0'];
-      const format = 'geminix.folders.v1';
+      const format = 'JinForGemini.folders.v1';
 
       versions.forEach((version) => {
         const compatible = isVersionCompatible(version, format);

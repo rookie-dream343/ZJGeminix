@@ -18,12 +18,12 @@
 
   // Prevent double injection
   if (window.__gvFetchInterceptorInstalled) {
-    console.log('[GeminiX] Fetch interceptor already installed, skipping');
+    console.log('[Jin for Gemini] Fetch interceptor already installed, skipping');
     return;
   }
   window.__gvFetchInterceptorInstalled = true;
 
-  console.log('[GeminiX] Fetch interceptor loading (MAIN world)...');
+  console.log('[Jin for Gemini] Fetch interceptor loading (MAIN world)...');
 
   /**
    * Pattern to match Gemini download URLs
@@ -137,7 +137,7 @@
       // Only process watermark removal if enabled — use async IIFE only for this path
       if (isWatermarkRemoverEnabled()) {
         return (async () => {
-          console.log('[GeminiX] Intercepting download for watermark removal');
+          console.log('[Jin for Gemini] Intercepting download for watermark removal');
 
           // Declare response and blob outside try block so they're accessible in catch
           let response, blob;
@@ -190,7 +190,7 @@
                           .catch(reject);
                     }
                   } catch (e) {
-                    console.warn('[GeminiX] Failed to parse bridge response:', e);
+                    console.warn('[Jin for Gemini] Failed to parse bridge response:', e);
                   }
                 }
               });
@@ -220,7 +220,7 @@
               headers: response.headers,
             });
           } catch (error) {
-            console.warn('[GeminiX] Watermark processing failed, using original:', error);
+            console.warn('[Jin for Gemini] Watermark processing failed, using original:', error);
             updateStatus('ERROR', { message: error.message || 'Unknown error' });
             // Return the original blob if available, otherwise fall through to originalFetch
             if (blob && response) {
@@ -241,5 +241,5 @@
     return originalFetch.apply(this, args);
   };
 
-  console.log('[GeminiX] Fetch interceptor active');
+  console.log('[Jin for Gemini] Fetch interceptor active');
 })();

@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "GeminiX",
+    "message": "Jin for Gemini",
     "description": "扩展程序名称"
   },
   "extDescription": {
@@ -52,7 +52,7 @@
     "description": "语言标签"
   },
   "pm_title": {
-    "message": "GeminiX",
+    "message": "Jin for Gemini",
     "description": "面板标题"
   },
   "pm_add": {

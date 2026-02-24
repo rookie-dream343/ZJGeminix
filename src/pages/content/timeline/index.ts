@@ -156,7 +156,7 @@ function cleanup(): void {
     try {
       observer.disconnect();
     } catch (e) {
-      console.error('[GeminiX] Failed to disconnect observer during cleanup:', e);
+      console.error('[Jin for Gemini] Failed to disconnect observer during cleanup:', e);
     }
   });
   activeObservers = [];
@@ -172,7 +172,7 @@ function cleanup(): void {
     try {
       handler();
     } catch (e) {
-      console.error('[GeminiX] Failed to run cleanup handler:', e);
+      console.error('[Jin for Gemini] Failed to run cleanup handler:', e);
     }
   });
   cleanupHandlers = [];

@@ -63,7 +63,7 @@ async function buildForEdge() {
   const packageJsonPath = path.join(rootDir, 'package.json');
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
   const version = packageJson.version;
-  const zipName = `geminix-edge-v${version}.zip`;
+  const zipName = `JinForGemini-edge-v${version}.zip`;
   const zipPath = path.join(rootDir, zipName);
 
   console.log(`\n📦 Zipping into ${zipName}...`);
