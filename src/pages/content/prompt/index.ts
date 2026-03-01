@@ -584,16 +584,9 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
     backupBtn.textContent = '💾 ' + i18n.t('pm_backup');
     backupBtn.title = i18n.t('pm_backup_tooltip');
 
-    // Official Website button - primary action (right side)
-    const websiteBtn = createEl('a', 'gv-pm-website-btn');
-    websiteBtn.target = '_blank';
-    websiteBtn.rel = 'noreferrer';
-    // Initial text/href will be set in refreshUITexts
-
     // Primary actions container
     const primaryActions = createEl('div', 'gv-pm-footer-actions');
     primaryActions.appendChild(backupBtn);
-    primaryActions.appendChild(websiteBtn);
 
     // Secondary actions container
     const secondaryActions = createEl('div', 'gv-pm-footer-secondary');
@@ -608,26 +601,9 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
     settingsBtn.textContent = i18n.t('pm_settings');
     settingsBtn.title = i18n.t('pm_settings_tooltip');
 
-    const gh = document.createElement('a');
-    gh.className = 'gv-pm-gh';
-    gh.href = 'https://github.com/Nagi-ovo/JinForGemini';
-    gh.target = '_blank';
-    gh.rel = 'noreferrer';
-    gh.title = i18n.t('starProject');
-
-    // Add icon and text
-    const ghIcon = document.createElement('span');
-    ghIcon.className = 'gv-pm-gh-icon';
-    const ghText = document.createElement('span');
-    ghText.className = 'gv-pm-gh-text';
-    ghText.textContent = i18n.t('starProject');
-    gh.appendChild(ghIcon);
-    gh.appendChild(ghText);
-
     secondaryActions.appendChild(importBtn);
     secondaryActions.appendChild(exportBtn);
     secondaryActions.appendChild(settingsBtn);
-    secondaryActions.appendChild(gh);
 
     footer.appendChild(primaryActions);
     footer.appendChild(secondaryActions);
@@ -948,20 +924,8 @@ export async function startPromptManager(): Promise<{ destroy: () => void }> {
       backupBtn.textContent = '💾 ' + i18n.t('pm_backup');
       backupBtn.title = i18n.t('pm_backup_tooltip');
 
-      // Update website button
-      websiteBtn.textContent = '🌐 ' + i18n.t('officialDocs');
-      i18n.get().then((lang) => {
-        websiteBtn.href =
-          lang === 'zh'
-            ? 'https://voyager.nagi.fun/guide/sponsor'
-            : `https://voyager.nagi.fun/${lang}/guide/sponsor`;
-      });
-
       settingsBtn.textContent = i18n.t('pm_settings');
       settingsBtn.title = i18n.t('pm_settings_tooltip');
-      gh.title = i18n.t('starProject');
-      const ghTextEl = gh.querySelector('.gv-pm-gh-text');
-      if (ghTextEl) ghTextEl.textContent = i18n.t('starProject');
       (addForm.querySelector('.gv-pm-input-text') as HTMLTextAreaElement).placeholder =
         i18n.t('pm_prompt_placeholder');
       (addForm.querySelector('.gv-pm-input-tags') as HTMLInputElement).placeholder =
